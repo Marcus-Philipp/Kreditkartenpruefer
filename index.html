@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css" type="text/css">
+    <link rel="icon" href="./credit-card-logo.png">
+<title>Kreditkartenpruefer</title>
+</head>
+<body>
+    <div class="container">
+
+            <div class="circles">
+                <div class="circle-1"></div>
+                <div class="circle-2"></div>
+            </div>
+            <h1 class="title">
+                Bitte geben Sie ihre<br> 
+                Kreditkartendaten ein
+            </h1>
+
+            <div class="card">
+
+                <form>
+                    <div class="company-container">
+                        <div class="company-name">
+                            <h2>BANK</h2>
+                            <img id="chip-logo" src="./chip.png">
+                        </div>
+                        <div class="company-logo">
+                        </div>
+                    </div>
+                    
+                    <div class="card-number">
+                        <label for="cardnumber">Kreditkartennummer</label>
+                        <input id="cardnumber" name="cardnumber" type="text" placeholder="1234 1234 1234 1234" maxlength="19" onkeypress="return isNumberKey(event)" required>
+                        <span class="underline"></span>
+                    </div>
+
+                    <div class="input-group-1">
+                        <div class="card-holder">
+                            <label for="cardholder">Karteninhaber</label>
+                            <input id="cardholder" name="cardholder" type="text" placeholder="Marcus Philipp" required>
+                            <span class="underline"></span>
+                        </div>
+                        <div class="valid-thru">
+                            <label for="validthru">Ablaufdatum</label>
+                            <input id="validthru" name="validthru" type="text" placeholder="10/25" maxlength="5" onkeypress="return isNumberKey(event)" required>
+                            <span class="underline"></span>
+                        </div>
+                    </div>
+                    <div class="input-group-2"></div>    
+                        <div class="cvv">
+                            <label for="card-cvv">CVV</label>
+                            <input id="card-cvv" name="card-cvv" type="text" placeholder="123" maxlength="3" onkeypress="return isNumberKey(event)" required>
+                            <span class="underline"></span>
+                        </div>
+                        <div id="logo"></div>
+                    </div>    
+                </form>
+            </div>
+    </div>
+
+    <script src="./pruefer.js"></script>
+</body>
+</html>

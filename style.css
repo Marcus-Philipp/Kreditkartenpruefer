@@ -1,0 +1,147 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif
+}
+
+body {
+    background-color: rgb(240, 244, 247);
+    background: linear-gradient(-70deg, #202020, #000000);
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.container {
+    align-self: center;
+}
+
+h1 {
+    position: relative;
+    bottom: 70px;
+    left: 30px;
+    color: white;
+}
+
+.circles {
+    position: relative;
+}
+
+.circle-1, .circle-2 {
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(120deg, #1D976C, #2C3E50);
+    opacity: 0.8;
+}
+
+.circle-1 {
+    height: 300px;
+    width: 300px;
+    top: 140px;
+    left: -80px;
+    z-index: -1;
+}
+
+.circle-2 {
+    height: 240px;
+    width: 240px;
+    top: 10px;
+    right: -70px;
+    z-index: -1;
+}
+
+.card {
+    height: 300px;
+    width: 480px;
+    padding: 30px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(35px);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 80px rgba(0, 0, 0, 0.25);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: flex-start;
+}
+
+h2 {
+    flex-grow: 1;
+    color: white;
+    letter-spacing: 1px;
+}
+
+#chip-logo {
+    height: 60px;
+    width: 75px;
+    
+}
+
+.company-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.company-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    height: 90px;
+}
+
+.company-logo img {
+    max-width: 100%;
+}
+
+.card-holder, 
+.valid-thru, 
+.cvv {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    flex: 1;
+}
+
+#cardnumber {
+    font-size: 32px;
+    width: 100%;
+    padding: 5px 0;
+    letter-spacing: 5px;
+}
+
+input {
+    background: 0;
+    border: none;
+    color: white;
+    padding: 2px 0;
+    font-size: 16px;
+}
+
+input:focus {
+    outline: none;
+    color: white;
+}
+
+input::placeholder {
+    color: rgb(175, 175, 175);
+}
+
+.input-group-1 {
+    display: flex;
+    max-width: 100%;
+}
+
+.input-group-2 {
+    display: flex;
+    max-width: 100%;
+    margin-top: 15px;
+}
