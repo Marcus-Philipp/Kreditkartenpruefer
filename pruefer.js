@@ -60,4 +60,3 @@ expiryInput.addEventListener('input', event => {
         target.value = target.value.slice(0, -1);
     }
 });
-
