@@ -36,18 +36,21 @@ body {
 }
 
 .result {
-    font-size: 70px;
     color: transparent;
 }
 
+.result-box h2 {
+    font-size: 4.375rem;
+}
+
 .green {
-    -webkit-text-stroke: 3px#1D976C;
-    text-shadow: 0 0 10px #053c29;
+    -webkit-text-stroke: 0.1875rem#1D976C;
+    text-shadow: 0 0 0.625rem #053c29;
 }
 
 .red {
-    -webkit-text-stroke: 3px#ca1717;
-    text-shadow: 0 0 10px #3c0505; 
+    -webkit-text-stroke: 0.1875rem#ca1717;
+    text-shadow: 0 0 0.625rem #3c0505; 
 }
 
 .container {
@@ -220,14 +223,14 @@ input::placeholder {
 .button-container {
     display: flex;
     justify-content: center;
-    margin-top: 25px;
+    margin-top: 1.5625rem;
 }
 
 .check {
     background-color:#053c29;
     border: none;
-    padding: 10px;
-    border-radius: 10px 0 10px;
+    padding: 0.625rem;
+    border-radius: 0.625rem 0 0.625rem;
     color: white;
 }
 
