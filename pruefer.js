@@ -1,37 +1,29 @@
-const isvalidateCreditCardNumber = element => {
-  element = [...element].reverse();
-  
-  let x = 0;
-  
-  let luhn = 0;
-  
-  for (let i = 1; i < element.length; i += 2) {
-    x = element[i] * 2;
-    if (x > 9) {
-      luhn += x - 9;
-    } else {
-      luhn += x;
-      }
-    }
-   
-  for (let i = 0; i < element.length; i += 2) {
-    luhn += element[i];
-    } if (luhn % 10 === 0) {
-      return true;
-    } 
-     return false;
-};
-
-function isNumberKey(evt){
-  let charCode = (evt.which) ? evt.which : evt.keyCode;
-  if (charCode > 31 && (charCode < 48 || charCode > 57))
-      return false;
-  return true;
-}
-
+// Deklarieren von DOM-Elementen.
 const cardNumberInput = document.getElementById('cardnumber');
 const logo = document.querySelector('.company-logo');
+const expiryInput = document.getElementById('validthru');
+const checkButton = document.querySelector('.check');
+const resultAnimation = document.querySelector('.result-box');
+const resultCrypt = document.querySelector('.result');
 
+// Funktion zum ueberpruefen ob die Kartennummer gueltig ist.
+const isvalidateCreditCardNumber = num => {
+  let arr = num.split('').reverse();
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+      let digit = parseInt(arr[i]);
+      if (i % 2 !== 0) {
+          digit *= 2;
+          if (digit > 9) {
+              digit -= 9;
+          }
+      }
+      sum += digit;
+  }
+  return sum % 10 === 0;
+};
+
+// Ereignishandler Leerzeichen und Logo auswahl.
 cardNumberInput.addEventListener('input', event => {
   event.target.value = event.target.value.replace(/[^\dA-Z]/g, '').replace(/(.{4})/g, '$1 ').trim();
 
@@ -50,8 +42,7 @@ cardNumberInput.addEventListener('input', event => {
   }
 });
 
-let expiryInput = document.getElementById('validthru');
-
+// Ereignishandler fuer Schraegstrich.
 expiryInput.addEventListener('input', event => {
     let target = event.target;
     if (target.value.length === 2 && !target.value.includes('/')) {
@@ -60,3 +51,26 @@ expiryInput.addEventListener('input', event => {
         target.value = target.value.slice(0, -1);
     }
 });
+
+const validateAnimation = (event, style) => {
+    resultAnimation.classList.toggle('show'); 
+    resultCrypt.textContent = event;
+    resultCrypt.classList.remove('green', 'red');
+    resultCrypt.classList.add(style);
+};
+
+checkButton.addEventListener('click', () => {
+  if(cardNumberInput.value.length === 19) {
+      let cardNumber = cardNumberInput.value.replace(/\s/g, '');
+      let checker = isvalidateCreditCardNumber(cardNumber);
+      if(checker) {
+          validateAnimation('KORREKT', 'green');
+      } else {
+          validateAnimation('INKORREKT', 'red');
+      }
+  } else {
+      alert('Bitte geben Sie eine gültige Kreditkartennummer ein');
+  }
+});
+
+

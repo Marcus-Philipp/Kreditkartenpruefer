@@ -17,6 +17,39 @@ body {
     min-height: 100vh;
 }
 
+.result-box.show {
+    display: flex;
+}
+
+.result-box {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    align-self: center;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(50px);
+    z-index: 1;
+    color: white;
+}
+
+.result {
+    font-size: 70px;
+    color: transparent;
+}
+
+.green {
+    -webkit-text-stroke: 3px#1D976C;
+    text-shadow: 0 0 10px #053c29;
+}
+
+.red {
+    -webkit-text-stroke: 3px#ca1717;
+    text-shadow: 0 0 10px #3c0505; 
+}
+
 .container {
     align-self: center;
 }
@@ -73,7 +106,7 @@ form {
     justify-content: flex-start;
 }
 
-h2 {
+.company-name h2 {
     flex-grow: 1;
     color: white;
     letter-spacing: 0.0625rem;
@@ -182,6 +215,25 @@ input::placeholder {
 #card-cvv:hover + .underline,
 #card-cvv:focus + .underline {
     width: 1.6875rem;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.check {
+    background-color:#053c29;
+    border: none;
+    padding: 10px;
+    border-radius: 10px 0 10px;
+    color: white;
+}
+
+.check:hover {
+    transform: scaleZ(10);
+    cursor: pointer;
 }
 
 @media (max-width: 600px) {
