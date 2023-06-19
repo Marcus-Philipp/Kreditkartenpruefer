@@ -57,7 +57,7 @@ h1 {
 
 .card {
     height: 18.75rem;
-    width: 30rem;
+    max-width: 30rem;
     padding: 1.875rem;
     border-radius: 1.25rem;
     background: rgba(255, 255, 255, 0.1);
@@ -191,7 +191,7 @@ input::placeholder {
     .container {
         align-self: start;
         position: relative;
-        top: 120px;
+        top: 50px;
     }
 }
 
