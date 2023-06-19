@@ -49,3 +49,15 @@ cardNumberInput.addEventListener('input', event => {
     logo.innerHTML = '<img src="./american.png">';
   }
 });
+
+let expiryInput = document.getElementById('validthru');
+
+expiryInput.addEventListener('input', event => {
+    let target = event.target;
+    if (target.value.length === 2 && !target.value.includes('/')) {
+        target.value += '/';
+    } else if (target.value.length === 3 && target.value.includes('/')) {
+        target.value = target.value.slice(0, -1);
+    }
+});
+

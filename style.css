@@ -23,8 +23,8 @@ body {
 
 h1 {
     position: relative;
-    bottom: 70px;
-    left: 30px;
+    bottom: 4.375rem;
+    left: 1.875rem;
     color: white;
 }
 
@@ -40,26 +40,26 @@ h1 {
 }
 
 .circle-1 {
-    height: 300px;
-    width: 300px;
-    top: 140px;
-    left: -80px;
+    height: 18.75rem;
+    width: 18.75rem;
+    top: 8.75rem;
+    left: -5rem;
     z-index: -1;
 }
 
 .circle-2 {
-    height: 240px;
-    width: 240px;
-    top: 10px;
-    right: -70px;
+    height: 15rem;
+    width: 15rem;
+    top: 0.625rem;
+    right: -4.375rem;
     z-index: -1;
 }
 
 .card {
-    height: 300px;
-    width: 480px;
-    padding: 30px;
-    border-radius: 20px;
+    height: 18.75rem;
+    width: 30rem;
+    padding: 1.875rem;
+    border-radius: 1.25rem;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(35px);
     border: 2px solid rgba(255, 255, 255, 0.1);
@@ -80,8 +80,8 @@ h2 {
 }
 
 #chip-logo {
-    height: 60px;
-    width: 75px;
+    height: 3.75rem;
+    width: 4.6875rem;
     
 }
 
@@ -94,8 +94,8 @@ h2 {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 120px;
-    height: 90px;
+    width: 7.5rem;
+    height: 3.125rem;
 }
 
 .company-logo img {
@@ -107,23 +107,31 @@ h2 {
 .cvv {
     display: flex;
     flex-direction: column;
-    align-items: start;
+    position: relative;
     flex: 1;
 }
 
+.card-holder, 
+.valid-thru {
+    top: 0.3125rem;
+}
+
+.card-number {
+    position: relative;
+}
+
 #cardnumber {
-    font-size: 32px;
+    font-size: 2rem;
     width: 100%;
-    padding: 5px 0;
-    letter-spacing: 5px;
+    letter-spacing: 0.3125rem;
 }
 
 input {
     background: 0;
     border: none;
     color: white;
-    padding: 2px 0;
-    font-size: 16px;
+    padding: 0.125rem 0;
+    font-size: 1rem;
 }
 
 input:focus {
@@ -143,5 +151,47 @@ input::placeholder {
 .input-group-2 {
     display: flex;
     max-width: 100%;
-    margin-top: 15px;
+    margin-top: 0.9375rem;
+}
+
+.underline {
+    position: absolute;
+    transition: 0.3s;
+    width: 0;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+}
+
+#cardnumber:hover + .underline,
+#cardnumber:focus + .underline {
+    width: 100%;
+}
+
+#cardholder:hover + .underline,
+#cardholder:focus + .underline {
+    width: 10rem;
+}
+
+#validthru:hover + .underline,
+#validthru:focus + .underline {
+    width: 2.625rem;
+}
+
+#card-cvv:hover + .underline,
+#card-cvv:focus + .underline {
+    width: 1.6875rem;
+}
+
+@media (max-width: 600px) {
+    html {
+        font-size: 7px;
+    }
+}
+
+@media (min-width: 1800px) {
+    html {
+        font-size: 22px;
+    }
 }
