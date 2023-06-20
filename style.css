@@ -55,6 +55,7 @@ body {
 
 .container {
     align-self: center;
+    overflow: hidden;
 }
 
 h1 {
@@ -192,7 +193,7 @@ input::placeholder {
 
 .underline {
     position: absolute;
-    transition: 0.3s;
+    transition: 0.5s;
     width: 0;
     height: 0.0625rem;
     bottom: 0;
