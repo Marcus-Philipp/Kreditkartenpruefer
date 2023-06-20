@@ -6,6 +6,8 @@ const checkButton = document.querySelector('.check');
 const resultAnimation = document.querySelector('.result-box');
 const resultCrypt = document.querySelector('.result');
 const resetButton = document.querySelector('.reset-button');
+const holderInput = document.getElementById('cardholder');
+const cvvInput = document.getElementById('card-cvv');
 
 // Funktion zum ueberpruefen ob die Kartennummer gueltig ist.
 const isvalidateCreditCardNumber = num => {
@@ -29,17 +31,17 @@ cardNumberInput.addEventListener('input', event => {
   event.target.value = event.target.value.replace(/[^\dA-Z]/g, '').replace(/(.{4})/g, '$1 ').trim();
 
   let result = event.target.value;
-  
-  if(result.length === 0) {
-    logo.innerHTML = '';
-    return;
 
-  } if(result > '3' && result < '5') {
+  let resultSum = parseInt(result);
+  
+  if(resultSum === 4) {
     logo.innerHTML = '<img src="./visa.png">';
-  } else if(result > '50' && result < '56') {
+  } else if(resultSum > 50 && resultSum < 56) {
     logo.innerHTML = '<img src="./mastercard.png">';
-  } else if(result === '34' || result === '37') {
+  } else if(resultSum === 34 || resultSum === 37) {
     logo.innerHTML = '<img src="./american.png">';
+  } else {
+    logo.innerHTML = '';
   }
 });
 
@@ -56,6 +58,7 @@ expiryInput.addEventListener('input', event => {
 const validateAnimation = (event, style) => {
   resultAnimation.classList.toggle('show'); 
   resultCrypt.textContent = event;
+  reflText.textContent = event;
   resultCrypt.classList.remove('green', 'red');
   resultCrypt.classList.add(style);
 };
@@ -77,6 +80,10 @@ checkButton.addEventListener('click', () => {
 const resetComplete = () => {
   resultAnimation.classList.toggle('show');
   resultCrypt.textContent = '';
+  cardNumberInput.value = '';
+  expiryInput.value = '';
+  holderInput.value = '';
+  cvvInput.value = '';
 };
 
 resetButton.addEventListener('click', resetComplete);

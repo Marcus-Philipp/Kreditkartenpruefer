@@ -4,6 +4,11 @@
     margin: 0;
 }
 
+html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
 html {
     font-size: 16px;
     font-family: Arial, Helvetica, sans-serif
