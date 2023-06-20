@@ -32,10 +32,9 @@ cardNumberInput.addEventListener('input', event => {
 
   let result = event.target.value;
 
-  
   if(result.startsWith('4')) {
     logo.innerHTML = '<img src="./visa.png">';
-  } else if(parseInt(result) >= 51 && parseInt(result) <= 55) {
+  } else if(result > '50' && result < '56') {
     logo.innerHTML = '<img src="./mastercard.png">';
   } else if(result.startsWith('34') || result.startsWith('34')) {
     logo.innerHTML = '<img src="./american.png">';
@@ -54,6 +53,7 @@ expiryInput.addEventListener('input', event => {
     }
 });
 
+// Funktion fuer Ergebnis der Kartennummer.
 const validateAnimation = (event, style) => {
   resultAnimation.classList.toggle('show'); 
   resultCrypt.textContent = event;
@@ -61,6 +61,7 @@ const validateAnimation = (event, style) => {
   resultCrypt.classList.add(style);
 };
 
+// Ereignishandler fuer Ergebnis.
 checkButton.addEventListener('click', () => {
   if(cardNumberInput.value.length === 19) {
       let cardNumber = cardNumberInput.value.replace(/\s/g, '');
@@ -71,10 +72,11 @@ checkButton.addEventListener('click', () => {
           validateAnimation('INKORREKT', 'red');
       }
   } else {
-      alert('Bitte geben Sie eine gültige Kreditkartennummer ein');
+      alert('Bitte geben Sie eine gueltige Kreditkartennummer ein');
   }
 });
 
+// Funktion um Ergebnis zu resetten.
 const resetComplete = () => {
   resultAnimation.classList.toggle('show');
   resultCrypt.textContent = '';
@@ -84,4 +86,5 @@ const resetComplete = () => {
   cvvInput.value = '';
 };
 
+// Ereignishandler um Ergebnis zu resetten und zurueck auf Startseite.  
 resetButton.addEventListener('click', resetComplete);

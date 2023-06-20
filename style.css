@@ -13,7 +13,7 @@ body {
     display: flex;
     justify-content: center;
     background: linear-gradient(-70deg, #202020, #000000);
-    
+    background-color: rgb(240, 244, 247);
     min-height: 100vh;
 }
 
@@ -28,8 +28,8 @@ body {
     flex-direction: column;
     position: absolute;
     align-self: center;
-    min-width: 100%;
-    min-height: 100%;
+    width: 100vw;
+    height: 100vh;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(50px);
     z-index: 1;
@@ -262,9 +262,6 @@ input::placeholder {
         align-self: start;
         position: relative;
         top: 120px;
-        overflow: hidden;
-    }
-    .result-box {
         overflow: hidden;
     }
 }
