@@ -5,6 +5,7 @@ const expiryInput = document.getElementById('validthru');
 const checkButton = document.querySelector('.check');
 const resultAnimation = document.querySelector('.result-box');
 const resultCrypt = document.querySelector('.result');
+const resetButton = document.querySelector('.reset-button');
 
 // Funktion zum ueberpruefen ob die Kartennummer gueltig ist.
 const isvalidateCreditCardNumber = num => {
@@ -33,7 +34,7 @@ cardNumberInput.addEventListener('input', event => {
     logo.innerHTML = '';
     return;
 
-  } if(result === '4') {
+  } if(result > '3' && result < '5') {
     logo.innerHTML = '<img src="./visa.png">';
   } else if(result > '50' && result < '56') {
     logo.innerHTML = '<img src="./mastercard.png">';
@@ -53,10 +54,10 @@ expiryInput.addEventListener('input', event => {
 });
 
 const validateAnimation = (event, style) => {
-    resultAnimation.classList.toggle('show'); 
-    resultCrypt.textContent = event;
-    resultCrypt.classList.remove('green', 'red');
-    resultCrypt.classList.add(style);
+  resultAnimation.classList.toggle('show'); 
+  resultCrypt.textContent = event;
+  resultCrypt.classList.remove('green', 'red');
+  resultCrypt.classList.add(style);
 };
 
 checkButton.addEventListener('click', () => {
@@ -73,4 +74,9 @@ checkButton.addEventListener('click', () => {
   }
 });
 
+const resetComplete = () => {
+  resultAnimation.classList.toggle('show');
+  resultCrypt.textContent = '';
+};
 
+resetButton.addEventListener('click', resetComplete);
