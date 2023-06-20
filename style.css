@@ -55,7 +55,6 @@ body {
 
 .container {
     align-self: center;
-    overflow: hidden;
 }
 
 h1 {
@@ -193,12 +192,11 @@ input::placeholder {
 
 .underline {
     position: absolute;
-    transition: 0.5s;
+    transition: 0.4s;
     width: 0;
-    height: 0.0625rem;
+    border-bottom: 1px solid white;
     bottom: 0;
     left: 0;
-    background-color: white;
 }
 
 #cardnumber:hover + .underline,
@@ -248,6 +246,7 @@ input::placeholder {
         align-self: start;
         position: relative;
         top: 120px;
+        overflow: hidden;
     }
 }
 
