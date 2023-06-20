@@ -61,18 +61,59 @@ const validateAnimation = (event, style) => {
   resultCrypt.classList.add(style);
 };
 
+// Funktion Pruefung der Kreditkartennummer.
+const creditNumberCheck = () => {
+  if(cardNumberInput.value.length === 19) {
+    let cardNumber = cardNumberInput.value.replace(/\s/g, '');
+    let checker = isvalidateCreditCardNumber(cardNumber);
+    if(checker) {
+        validateAnimation('KORREKT', 'green');
+    } else {
+        validateAnimation('INKORREKT', 'red');
+    }
+} else {
+    alert('Bitte geben Sie eine gueltige Kreditkartennummer ein');
+    }
+  return false;
+};
+
+// Funktion Pruefung des Karteninhabers.
+const cardHolderCheck = () => {
+   if(holderInput.value.length >= 6 && /^[A-Za-z\s]+$/.test(holderInput.value)) {
+    return true;
+   } else {
+    alert('Bitte geben Sie einen vollstaendigen Namen ein');
+    return false;
+   }
+};
+
+// Funktion Pruefung des Ablaufdatum.
+const validThruCheck = () => {
+
+  const expiryPattern = /^(0[1-9]|1[0-2])\/\d{2}$/;
+
+  if(expiryPattern.test(expiryInput.value)) {
+    return true;
+   } else {
+    alert('Bitte geben Sie ein vollstaendiges Ablaufdatum ein');
+    return false;
+   }
+};
+
+// Funktion Pruefung der CVV.
+const cvvCheck = () => {
+  if(cvvInput.value.length === 3 && !isNaN(cvvInput.value)) {
+    return true;
+   } else {
+    alert('Bitte geben Sie eine vollstaendige CVV ein');
+    return false;
+   }
+}; 
+
 // Ereignishandler fuer Ergebnis.
 checkButton.addEventListener('click', () => {
-  if(cardNumberInput.value.length === 19) {
-      let cardNumber = cardNumberInput.value.replace(/\s/g, '');
-      let checker = isvalidateCreditCardNumber(cardNumber);
-      if(checker) {
-          validateAnimation('KORREKT', 'green');
-      } else {
-          validateAnimation('INKORREKT', 'red');
-      }
-  } else {
-      alert('Bitte geben Sie eine gueltige Kreditkartennummer ein');
+  if(cardHolderCheck() && validThruCheck() && cvvCheck()) {
+    creditNumberCheck();
   }
 });
 
@@ -84,6 +125,7 @@ const resetComplete = () => {
   expiryInput.value = '';
   holderInput.value = '';
   cvvInput.value = '';
+  logo.innerHTML = '';
 };
 
 // Ereignishandler um Ergebnis zu resetten und zurueck auf Startseite.  
