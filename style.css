@@ -254,15 +254,26 @@ input::placeholder {
     box-shadow: 1px 1px 1px 1px #1D976C;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 420px) {
     html {
-        font-size: 9px;
+        font-size: 10.5px;
     }
     .container {
         align-self: start;
         position: relative;
         top: 120px;
         overflow: hidden;
+    }
+}
+
+@media (max-width: 660px) {
+    html {
+        font-size: 10.5px;
+    }
+    .container {
+        align-self: start;
+        position: relative;
+        top: 120px;
     }
 }
 
