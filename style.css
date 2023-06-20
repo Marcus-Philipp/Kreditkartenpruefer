@@ -4,22 +4,27 @@
     margin: 0;
 }
 
-html, body {
-    overflow-x: hidden;
-    max-width: 100%;
-}
-
 html {
     font-size: 16px;
-    font-family: Arial, Helvetica, sans-serif
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(-70deg, #202020, #000000);
+    z-index: -1;
 }
 
 body {
     background-color: rgb(240, 244, 247);
-    background: linear-gradient(-70deg, #202020, #000000);
     display: flex;
     justify-content: center;
-    min-height: 100vh;
+    min-height: 90vh;
 }
 
 .result-box.show {
@@ -267,9 +272,6 @@ input::placeholder {
         align-self: start;
         position: relative;
         top: 120px;
-        overflow: hidden;
-    }
-    .result-box {
         overflow: hidden;
     }
 }
