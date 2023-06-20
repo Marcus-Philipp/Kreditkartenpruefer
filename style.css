@@ -9,22 +9,12 @@ html {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: linear-gradient(-70deg, #202020, #000000);
-    z-index: -1;
-}
-
 body {
-    background-color: rgb(240, 244, 247);
     display: flex;
     justify-content: center;
-    min-height: 90vh;
+    background: linear-gradient(-70deg, #202020, #000000);
+    background-color: rgb(240, 244, 247);
+    min-height: 100vh;
 }
 
 .result-box.show {
@@ -38,8 +28,8 @@ body {
     flex-direction: column;
     position: absolute;
     align-self: center;
-    width: 100%;
-    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(50px);
     z-index: 1;
@@ -280,4 +270,5 @@ input::placeholder {
     html {
         font-size: 22px;
     }
+    
 }
