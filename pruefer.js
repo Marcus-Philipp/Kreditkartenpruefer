@@ -36,7 +36,7 @@ cardNumberInput.addEventListener('input', event => {
     logo.innerHTML = '<img src="./visa.png">';
   } else if(result > '50' && result < '56') {
     logo.innerHTML = '<img src="./mastercard.png">';
-  } else if(result.startsWith('34') || result.startsWith('34')) {
+  } else if(result.startsWith('34') || result.startsWith('37')) {
     logo.innerHTML = '<img src="./american.png">';
   } else {
     logo.innerHTML = '';
