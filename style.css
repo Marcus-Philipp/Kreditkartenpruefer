@@ -264,6 +264,9 @@ input::placeholder {
         top: 120px;
         overflow: hidden;
     }
+    .result-box {
+        overflow: hidden;
+    }
 }
 
 @media (min-width: 1800px) {
