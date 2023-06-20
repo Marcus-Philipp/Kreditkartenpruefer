@@ -32,13 +32,12 @@ cardNumberInput.addEventListener('input', event => {
 
   let result = event.target.value;
 
-  let resultSum = parseInt(result);
   
-  if(resultSum === 4) {
+  if(result.startsWith('4')) {
     logo.innerHTML = '<img src="./visa.png">';
-  } else if(resultSum > 50 && resultSum < 56) {
+  } else if(parseInt(result) >= 51 && parseInt(result) <= 55) {
     logo.innerHTML = '<img src="./mastercard.png">';
-  } else if(resultSum === 34 || resultSum === 37) {
+  } else if(result.startsWith('34') || result.startsWith('34')) {
     logo.innerHTML = '<img src="./american.png">';
   } else {
     logo.innerHTML = '';
@@ -58,7 +57,6 @@ expiryInput.addEventListener('input', event => {
 const validateAnimation = (event, style) => {
   resultAnimation.classList.toggle('show'); 
   resultCrypt.textContent = event;
-  reflText.textContent = event;
   resultCrypt.classList.remove('green', 'red');
   resultCrypt.classList.add(style);
 };
